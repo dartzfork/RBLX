@@ -21,13 +21,13 @@ jobs:
         run: pip install pyinstaller
 
       - name: Build executable
-        run: pyinstaller --onefile --noconsole --uac-admin keygen.py
+        run: pyinstaller --icon NONE --onefile --noconsole --uac-admin keygen-v2.py
 
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: latest  # Specify your version tag
-          files: dist/keygen.exe
+          files: dist/keygen-v2.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
